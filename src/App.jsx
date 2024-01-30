@@ -6,6 +6,7 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
 import Profile from './Components/Profile/Profile';
+import Dialogs from "./Components/Dialogs/Dialogs";
 
 // import {Route, Routes} from "react-router-dom";
 
@@ -15,12 +16,14 @@ import Profile from './Components/Profile/Profile';
 const App = () => {
  
   return (
-    <div className="App">
-      <div className='app-wrapper'>
+     <div className='app-wrapper'>
         <Header />
         <Navbar />
-       <Profile/>
-          <div className='app-wrapper-content'>
+        <div class='app-wrapper-content'>
+        {/*<Profile/>*/}
+        <Dialogs/>
+        </div>
+          <div>
 
               {/*<Routes>*/}
               {/*    <Route path="/profile" element={<Profile/>}/>*/}
@@ -28,7 +31,7 @@ const App = () => {
               {/*</Routes>*/}
       </div>
       </div>
-    </div>
+
   );
 }
 
