@@ -1,22 +1,24 @@
 import React from "react";
-import classes from  './Navbar.module.css' 
+import css from './Navbar.module.css'
+import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
-    return  <nav className={classes.nav}>
-        <div className={classes.item}>
-            <a href="/profile">Profile</a>
+    return <nav className={css.nav}>
+        <div className={css.item}>
+
+            <NavLink to="/profile" className = { navD => navD.isActive ? css.active : css.item }>Profile</NavLink>
         </div>
-        <div className={`${classes.item} ${classes.active}`}>
-            <a href="/dialogs"> Messages</a>
+        <div className={css.item}>
+            <NavLink to="/dialogs" className = { navD => navD.isActive ? css.active : css.item }> Messages</NavLink>
         </div>
-        <div className={classes.item}>
-            <a> News</a>
+        <div className={css.item}>
+            <NavLink to="/news" className = { navD => navD.isActive ? css.active : css.item }> News</NavLink>
         </div>
-        <div className={classes.item}>
-            <a> Music</a>
+        <div className={css.item}>
+            <NavLink to='/music' className = { navD => navD.isActive ? css.active : css.item }> Music</NavLink>
         </div>
-        <div className={classes.item}>
-            <a> Settings</a>
+        <div className={css.item}>
+            <NavLink to="/settings" className = { navD => navD.isActive ? css.active : css.item }> Settings</NavLink>
         </div>
     </nav>
 }

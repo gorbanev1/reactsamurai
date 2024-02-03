@@ -8,7 +8,13 @@
   color: rgb(126, 75, 28);
 }
 .item.active {
-  color:rgb(113, 34, 178);
+  color: aqua;
+}
+.item a{
+  text-decoration:none;
+}
+.item a.active{
+  color:gold;
 }
 /* .active{
   background-color: rgb(43, 226, 180);

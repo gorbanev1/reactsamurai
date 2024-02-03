@@ -1,3 +1,22 @@
-.content img{
-  width: 1200px;
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems.dialog {
+    padding: 10px;
+}
+dialogsItems.active{
+    color: gold;
+}
+.dialog.active{
+    color: aqua;
+}
+
+.messages {
+    padding: 10px;
+}
+
+.messages .message {
+
 }

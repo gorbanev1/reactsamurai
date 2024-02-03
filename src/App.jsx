@@ -7,32 +7,30 @@ import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
 import Profile from './Components/Profile/Profile';
 import Dialogs from "./Components/Dialogs/Dialogs";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Music from "./Components/Music/Music";
 
-// import {Route, Routes} from "react-router-dom";
-
-
-
-// alert(names[0].toUpperCase())
 const App = () => {
- 
-  return (
-     <div className='app-wrapper'>
-        <Header />
-        <Navbar />
-        <div class='app-wrapper-content'>
-        {/*<Profile/>*/}
-        <Dialogs/>
-        </div>
-          <div>
 
-              {/*<Routes>*/}
-              {/*    <Route path="/profile" element={<Profile/>}/>*/}
-              {/*    <Route path="/dialogs" element={<Dialogs/>}/>*/}
-              {/*</Routes>*/}
-      </div>
-      </div>
+    return (
+        <BrowserRouter>
+            <div className='app-wrapper'>
+                <Header/>
+                <Navbar/>
+                <div class='app-wrapper-content'>
+                    <Routes>
+                        <Route path="/profile" element={<Profile/>}/>
+                        <Route path="/dialogs/*" element={<Dialogs/>}/>
+                        <Route path='/music' element={<Music/>}/>
+                    </Routes>
+                </div>
+                <div>
 
-  );
+                </div>
+            </div>
+        </BrowserRouter>
+
+    );
 }
 
 
