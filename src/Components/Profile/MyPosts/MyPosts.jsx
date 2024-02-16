@@ -11,11 +11,16 @@ const MyPosts = (props) => {
         {id: 5, message: 'Osel'},
         {id: 6, message: 'idiot'},
     ]*/
-    const postsElements=props.posts.map(p => <Post message={p.message}/>)
+    const postsElements=props.state.posts.map(p => <Post message={p.message}/>)
     let addPost=()=>{
-debugger
         let text = newPostElement.current.value;
         props.addPost(text);
+        text=""
+    }
+    let changePost=()=>{
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
+
     }
     let newPostElement=React.createRef();
     return (
@@ -23,10 +28,10 @@ debugger
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement}></textarea>
+                    <textarea ref={newPostElement} onChange={changePost} value={props.state.newPostText} />
                 </div>
                 <div>
-                    <button onClick={addPost}>Add Post</button>
+                    <button onClick={addPost} >Add Post</button>
                 </div>
             </div>
             <div className={css.posts}>

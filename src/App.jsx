@@ -13,7 +13,7 @@ import Music from "./Components/Music/Music";
 const App = (props) => {
 
     return (
-        <BrowserRouter>
+
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
@@ -21,7 +21,9 @@ const App = (props) => {
                     <Routes>
                         <Route path="/profile"
                                element={<Profile
-                                   state={props.state.profilePage} addPost={props.addPost}/>}/>
+                                   state={props.state.profilePage} addPost={props.addPost}
+                                   updateNewPostText={props.updateNewPostText}
+                               />}/>
                         <Route path="/dialogs/*"
                                element={<Dialogs
                                    state={props.state.dialogsPage}
@@ -34,7 +36,7 @@ const App = (props) => {
 
                 </div>
             </div>
-        </BrowserRouter>
+
 
     );
 }

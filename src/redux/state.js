@@ -1,3 +1,4 @@
+import {renderEntireTree} from "../render";
 
 
 let state = {
@@ -10,7 +11,7 @@ let state = {
             {id: 5, message: 'Osel'},
             {id: 6, message: 'idiot'},
         ],
-
+        newPostText: "fdsafsf"
     }
 ,
     dialogsPage: {
@@ -33,13 +34,19 @@ let state = {
     }
 
 }
-export let addPost =(postMessage)=>{
+export let addPost =()=>{
     debugger
     let newPost={
         id: 5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0
     }
+
     state.profilePage.posts.push(newPost)
+    renderEntireTree(state)
+}
+export let updateNewPostText=(newText)=>{
+    state.profilePage.newPostText=newText
+    renderEntireTree(state)
 }
 export default state
