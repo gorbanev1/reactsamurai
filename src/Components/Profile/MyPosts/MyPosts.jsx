@@ -13,11 +13,13 @@ const MyPosts = (props) => {
     ]*/
     const postsElements=props.state.posts.map(p => <Post message={p.message}/>)
     let addPost=()=>{
+        debugger
         let text = newPostElement.current.value;
         props.addPost(text);
-        text=""
+        props.updateNewPostText('')
     }
     let changePost=()=>{
+        debugger
         let text = newPostElement.current.value;
         props.updateNewPostText(text);
 
