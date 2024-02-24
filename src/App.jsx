@@ -11,9 +11,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Music from "./Components/Music/Music";
 
 const App = (props) => {
-
     return (
-
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
@@ -21,8 +19,9 @@ const App = (props) => {
                     <Routes>
                         <Route path="/profile"
                                element={<Profile
-                                   state={props.state.profilePage} addPost={props.addPost}
-                                   updateNewPostText={props.updateNewPostText}
+                                   state={props.state.profilePage}
+                                   dispatch={props.dispatch}
+
                                />}/>
                         <Route path="/dialogs/*"
                                element={<Dialogs
