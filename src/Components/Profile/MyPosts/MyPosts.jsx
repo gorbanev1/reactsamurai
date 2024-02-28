@@ -14,13 +14,13 @@ const MyPosts = (props) => {
     ]*/
     const postsElements=props.state.posts.map(p => <Post message={p.message}/>)
     let addPost=()=>{
-        debugger
+
         let text = newPostElement.current.value;
         props.dispatch(addPostActionCreator());
         // props.updateNewPostText('')
     }
     let onPostChange=()=>{
-        debugger
+
         let text = newPostElement.current.value;
         let action = updateNewPostTextActionCreator(text);
         props.dispatch(action);
@@ -48,4 +48,5 @@ const MyPosts = (props) => {
 
     )
 }
+debugger
 export default MyPosts
