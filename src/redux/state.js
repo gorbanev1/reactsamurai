@@ -76,8 +76,6 @@ let store = {
         //     this._state.dialogsPage.newMessageBody = ''
         //     this._state.dialogsPage.messagesData.push({id: 7, message: body},
         //     )
-        debugger
-        alert("dsfssss")
         this._callSubscriber(this._state)
         // }
     }

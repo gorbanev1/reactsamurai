@@ -17,21 +17,23 @@ let initialState={
         {id: 4, message: 'Suka'},
         {id: 5, message: 'Osel'},
         {id: 6, message: 'idiot'},
-    ]
+    ],
+    newMessageBody: "ть"
 }
 
 const dialogsReducer=(state=initialState,action)=>{
 
     if (action.type === UPDATE_NEW_MESSAGE_BODY) {
         state.newMessageBody = action.body
-        debugger
+
     } else if (action.type === SEND_MESSAGE) {
         let body = state.newMessageBody
-        debugger
+
+        state.messagesData.push({id: 7, message: body})
         state.newMessageBody = ''
-        state.messagesData.push({id: 7, message: body},
-        )
+
     }
+    debugger
     return state
 }
 export default dialogsReducer

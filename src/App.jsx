@@ -11,7 +11,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Music from "./Components/Music/Music";
 
 const App = (props) => {
-    debugger
+
     return (
             <div className='app-wrapper'>
                 <Header/>
@@ -27,6 +27,9 @@ const App = (props) => {
                         <Route path="/dialogs/*"
                                element={<Dialogs
                                    store={props.store}
+                                   dispatch={props.dispatch}
+
+
                                />}
                         />
                         <Route path='/music' render={()=><Music/>}/>
