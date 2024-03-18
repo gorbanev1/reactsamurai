@@ -5,26 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./redux/redux-store";
 import {BrowserRouter} from "react-router-dom";
-// import {renderEntireTree} from "./render";
+import StoreContext from "./StoreContext";
 
-/*let renderEntireTree = () => {
-const root = ReactDOM.createRoot(document.getElementById('root'));
-addPost("анус")
-root.render(
-  <React.StrictMode>
-      <BrowserRouter>
-    <App state={state} addPost={addPost}/>
-      </BrowserRouter>
-  </React.StrictMode>
-);
-}*/
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 export let renderEntireTree = (state) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
+                <StoreContext.Provider value={store}>
                 <App state={state} dispatch={store.dispatch.bind(store)} store={store}/>
+                </StoreContext.Provider>
             </BrowserRouter>
         </React.StrictMode>
     );
