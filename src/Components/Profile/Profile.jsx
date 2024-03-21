@@ -5,12 +5,13 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 /* alert(image); */
-const Profile = (props) => {
+const Profile = () => {
     debugger
     return (
         <div>
             <ProfileInfo/>
-            <MyPostsContainer store={props.store}
+            <MyPostsContainer
+                // store={props.store}
                               // posts={props.profilePage.posts}
                               // newPostText={props.profilePage.newPostText}
                               // // state={props.state}
