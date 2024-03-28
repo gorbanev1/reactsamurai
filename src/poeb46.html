@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = {
+        name: "sadfsdfas",
+        protocol: "afdsfs",
+        count: 40,
+        students: ['ivan', 'andrey', 'farid'],
+        classroom: {
+            teacher: {
+                name: "wew",
+                age: 18
+            }
+        }
+    }
+    let b = a
+    let c={...a}
+    c.classroom={...a.classroom}
+    c.classroom.teacher={...a.classroom.teacher}
+    c.students={...a.students}
+    console.log(b===a)
+    console.log(c)
+</script>
+</body>
+</html>
