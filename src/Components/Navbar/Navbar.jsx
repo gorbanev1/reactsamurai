@@ -20,6 +20,9 @@ const Navbar = () => {
         <div className={css.item}>
             <NavLink to="/settings" className = { navD => navD.isActive ? css.active : css.item }> Settings</NavLink>
         </div>
+        <div className={css.item}>
+            <NavLink to="/users" className = { navD => navD.isActive ? css.active : css.item }> Users</NavLink>
+        </div>
     </nav>
 }
 export default Navbar

@@ -8,7 +8,7 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Music from "./Components/Music/Music";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
-import Users from "./Components/Users/Users";
+import Usersold from "./Components/Users/Usersold";
 import UsersContainer from "./Components/Users/UsersContainer";
 
 const App = (props) => {
