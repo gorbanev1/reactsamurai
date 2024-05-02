@@ -2,14 +2,13 @@ import React from 'react';
 import {connect} from  "react-redux"
 import Users from "./Users";
 import {
-    followAC,
-    setCurrentPageAC,
-    setUsersAC,
-    setUsersTotalCountAC,
-    toggleIsFetchingAC,
-    unfollowAC
+    follow,
+    setCurrentPage,
+    setUsers,
+    setUsersTotalCount,
+    toggleIsFetching,
+    unfollow
 } from "../../redux/users-reducer";
-import preloader from './../../assets/images/f398c8e928e0886d86c00e7770ccab78.gif'
 import axios from "axios";
 import Preloader from "../common/Preloader/Preloader";
 
@@ -64,27 +63,43 @@ let mapStateToProps=(state)=>{
 
     }
 }
-let mapDispatchToProps=(dispatch)=>{
+/*let mapDispatchToProps = (dispatch) => {
     return {
-        follow: (userId)=>{
+        follow: (userId) => {
             dispatch(followAC(userId));
         },
-        unfollow: (userId)=>{
+        unfollow: (userId) => {
             dispatch(unfollowAC(userId))
         },
-        setUsers: (users)=>{
+        setUsers: (users) => {
             dispatch(setUsersAC(users))
         },
-        setCurrentPage: (pageNumber)=>{
+        setCurrentPage: (pageNumber) => {
             dispatch(setCurrentPageAC(pageNumber))
         },
-        setTotalUsersCount: (totalCount)=>{
+        setTotalUsersCount: (totalCount) => {
             dispatch(setUsersTotalCountAC(totalCount))
         },
-        toggleIsFetching: (isFetching)=>{
+        toggleIsFetching: (isFetching) => {
             dispatch(toggleIsFetchingAC(isFetching))
         }
     }
-}
+}*/
 
-export default connect(mapStateToProps, mapDispatchToProps) (UsersApiComponent)
+
+let name=15
+let user = {
+    name
+}
+export default connect(mapStateToProps,
+
+    {
+        follow: follow,
+        unfollow: unfollow,
+        setUsers: setUsers,
+        setCurrentPage: setCurrentPage,
+        setTotalUsersCount: setUsersTotalCount,
+        toggleIsFetching: toggleIsFetching,
+        }
+
+    ) (UsersApiComponent)
