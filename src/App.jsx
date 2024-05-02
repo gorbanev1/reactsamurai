@@ -10,6 +10,7 @@ import Music from "./Components/Music/Music";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import Usersold from "./Components/Users/Usersold";
 import UsersContainer from "./Components/Users/UsersContainer";
+import ProfileContainer from "./Components/Profile/ProfileInfo/ProfileContainer";
 
 const App = (props) => {
 
@@ -20,7 +21,7 @@ const App = (props) => {
                 <div class='app-wrapper-content'>
                     <Routes>
                         <Route path="/profile"
-                               element={<Profile
+                               element={<ProfileContainer
                                />}/>
                         <Route path="/dialogs/*"
                                element={<DialogsContainer

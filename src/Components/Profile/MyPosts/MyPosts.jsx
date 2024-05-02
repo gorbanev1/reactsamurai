@@ -41,5 +41,5 @@ const MyPosts = (props) => {
 
     )
 }
-debugger
+
 export default MyPosts
