@@ -3,6 +3,7 @@ import Profile from "../Profile";
 import React from 'react'
 import axios from "axios";
 import {connect} from "react-redux";
+import {setUserProfile} from "../../../redux/profile-reducer";
 
 class ProfileContainer extends React.Component{
     componentDidMount() {
@@ -10,18 +11,17 @@ class ProfileContainer extends React.Component{
             .then(response=>{
                 debugger
             this.props.setUserProfile(response.data.items)
-            this.props.setTotalUsersCount(response.data.totalCount)
-            this.props.toggleIsFetching(false)
+
         })
     }
 
     render(){
     return (
-           <Profile {...this.props}/>
+           <Profile {...this.props} profile={this.props.profile}/>
            )
     }
 }
 let mapStateToProps = (state)=>({
-    a: 13
+    profile: state.profilePage.profile
 })
-export default connect(mapStateToProps,  ProfileContainer
+export default connect(mapStateToProps, {setUserProfile})( ProfileContainer)

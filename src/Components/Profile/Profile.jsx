@@ -5,7 +5,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 /* alert(image); */
-const Profile = () => {
+const Profile = (props) => {
     debugger
     return (
         <div>
