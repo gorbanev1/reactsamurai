@@ -25,13 +25,10 @@ const App = (props) => {
                                />}/>
                         <Route path="/dialogs/*"
                                element={<DialogsContainer
-                                   // store={props.store}
-                                   // dispatch={props.dispatch}
                                />}
                         />
                         <Route path="/users/*"
                                element={<UsersContainer
-
                                />}
                         />
                         <Route path='/music' render={()=><Music/>}/>

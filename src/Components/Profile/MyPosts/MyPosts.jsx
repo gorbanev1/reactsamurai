@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/store";
 
 const MyPosts = (props) => {
-    debugger
+
     const postsElements=props.posts.map(p => <Post message={p.message}/>)
 
     console.log(postsElements)
