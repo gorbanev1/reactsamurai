@@ -1,12 +1,14 @@
 import React from "react";
 import css from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
+import {Navigate, NavLink} from "react-router-dom";
 import DialogItem from "./DialogItem/DialogsItem";
 import Message from "./Message/Message";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import StoreContextDelete from "../../StoreContext-delete";
 import {connect} from "react-redux";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 const DialogsContainer1 = () => {
     // const dialogsElements = state.dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>)
@@ -33,7 +35,7 @@ const DialogsContainer1 = () => {
 let mapStateToProps =(state)=>{
     return {
         dialogsPage: state.dialogsPage,
-        isAuth: state.auth.isAuth
+
     }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -50,8 +52,9 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps) (Dialogs)
 
-export default DialogsContainer
-
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Dialogs)
 
