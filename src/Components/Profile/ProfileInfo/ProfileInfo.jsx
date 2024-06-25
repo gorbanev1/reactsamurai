@@ -2,6 +2,7 @@ import React from "react";
 import MyPosts from "../MyPosts/MyPosts";
 import css from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
     debugger
@@ -16,7 +17,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={css.descriptionBlock}>
                 <img src={props.profile.photos.large}/>
-                Ava+ description
+                <ProfileStatus status={"sosi hui"}/>
             </div>
         </div>
     )
