@@ -3,9 +3,11 @@ import css from './ProfileInfo.module.css'
 
 
 class ProfileStatus extends React.Component {
-
+    statusInputRef = React.createRef()
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
+
     }
     activateEditMode =()=>{
         this.setState(
@@ -22,7 +24,8 @@ class ProfileStatus extends React.Component {
                 editMode: false,
             }
         )
-        this.state.editMode=true
+        this.props.updateStatus(this.state.status)
+
 
     }
     render() {
@@ -35,7 +38,7 @@ class ProfileStatus extends React.Component {
                 }
                 {this.state.editMode &&
                     <div>
-                        <input autoFocus={true} onBlur={this.deactivateEditMode.bind(this)} value={this.props.status}></input>
+                        <input  autoFocus={true} onBlur={this.deactivateEditMode.bind(this)} value={this.state.status}></input>
                     </div>
                 }
             </div>
