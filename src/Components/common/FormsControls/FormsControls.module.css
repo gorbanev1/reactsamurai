@@ -3,5 +3,8 @@
 }
 .formControl.error input,
 .formControl.error textarea{
-    border: solid red 1px
+    border: solid blue 10px;
+}
+.formControl.error span{
+    color: blue;
 }
