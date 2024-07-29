@@ -12,14 +12,14 @@ let initialState = {
         {id: 3, message: 'Blabla', likesCount: 11},
         {id: 4, message: 'Dada', likesCount: 11}
     ],
-    newPostText: 'it-kamasutra.com',
+
     profile: null,
     status: ""
 };
 
 const profileReducer = (state = initialState, action) => {
 
-    switch(action.type) {
+    switch (action.type) {
         case ADD_POST: {
             let newPost = {
                 id: 5,
@@ -48,7 +48,7 @@ const profileReducer = (state = initialState, action) => {
 }
 
 
-export const addPostActionCreator = (newPostText) => ({type: ADD_POST}, newPostText)
+export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const setStatus = (status) => ({type: SET_STATUS, status})
 
@@ -60,15 +60,14 @@ export const getUserProfile = (userId) => (dispatch) => {
 export const getStatus = (userId) => (dispatch) => {
     profileAPI.getStatus(userId)
         .then(response => {
-        dispatch(setStatus(response.data));
-    });
+            dispatch(setStatus(response.data));
+        });
 }
 export const updateStatus = (status) => (dispatch) => {
     profileAPI.updateStatus(status)
         .then(response => {
-            if (response.data.resultCode===0)
-
-            dispatch(setStatus(status));
+            if (response.data.resultCode === 0)
+                dispatch(setStatus(status));
         });
 }
 export default profileReducer;
