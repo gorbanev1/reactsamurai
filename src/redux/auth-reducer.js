@@ -33,7 +33,18 @@ export const getAuthUserData = () => (dispatch)=>{
             if (response.data.resultCode===0 ){
                 let {id, login, email} = response.data.data
                 dispatch(setAuthUserData(id, login, email))
+            }
+        })
+}
 
+
+
+export const login = (email, password, rememberME) => (dispatch)=>{
+    authAPI.login(email, password, rememberMe)
+        .then(response=>{
+            if (response.data.resultCode===0 ){
+                let {id, login, email} = response.data.data
+                dispatch(getAuthUserData())
             }
         })
 }
