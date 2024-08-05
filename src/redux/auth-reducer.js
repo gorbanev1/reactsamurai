@@ -9,10 +9,8 @@ let initialState = {
     email: null,
     login: null,
     isAuth: false,
-
-}
+}gi
 const authReducer = (state = initialState, action) => {
-
     switch(action.type){
         case SET_USER_DATA:
             return  {
@@ -22,8 +20,8 @@ const authReducer = (state = initialState, action) => {
         default:
             return state;
     }
-
 }
+
 export const setAuthUserData  = (userId, email, login, isAuth) => ({type: SET_USER_DATA, payload:
         {userId, email, login, isAuth }})
 export const getAuthUserData = () => (dispatch)=>{
