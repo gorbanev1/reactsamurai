@@ -9,7 +9,7 @@ let initialState = {
     email: null,
     login: null,
     isAuth: false,
-}gi
+}
 const authReducer = (state = initialState, action) => {
     switch(action.type){
         case SET_USER_DATA:
