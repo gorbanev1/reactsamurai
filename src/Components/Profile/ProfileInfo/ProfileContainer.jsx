@@ -1,12 +1,10 @@
 import Profile from "../Profile";
 import React from 'react'
-import axios from "axios";
 import {connect} from "react-redux";
 import {getStatus, getUserProfile, updateStatus} from "../../../redux/profile-reducer";
 import {Navigate, useParams} from 'react-router-dom';
-import {usersAPI} from "../../../api/api";
-import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {withNavigate} from "./NavigateHOC";
 
 export function withRouter(Children){
     return(props)=>{
@@ -20,7 +18,9 @@ class ProfileContainer extends React.Component{
         let userId = this.props.match.params.userId
         if (!userId) {
             userId = this.props.authorizedUserId //31066
-            debugger
+            if (!userId) {
+                this.props.navigate("/login");
+            }
         }
         this.props.getUserProfile(userId)
         this.props.getStatus(userId)
@@ -47,6 +47,7 @@ let mapStateToProps = (state)=>({
 export default compose(
     connect(mapStateToProps, {getUserProfile, getStatus, updateStatus}),
     withRouter,
+    withNavigate
    //withAuthRedirect
 )(ProfileContainer)
 

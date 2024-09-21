@@ -8,10 +8,22 @@ import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileInfo/ProfileContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import Login from "./Components/Login/Login";
+import {connect} from "react-redux";
+import {compose} from "redux"
+import {initializeApp} from "./redux/app-reducer";
+import Preloader from "./Components/common/Preloader/Preloader";
 
-const App = (props) => {
 
-    return (
+class App extends React.Component {
+    componentDidMount() {
+        this.props.initializeApp();
+    }
+    render() {
+        if (!this.props.initialized){
+            return <Preloader/>
+        }
+        else
+        return (
             <div className='app-wrapper'>
                 <HeaderContainer/>
                 <Navbar/>
@@ -32,14 +44,19 @@ const App = (props) => {
                                element={<Login
                                />}
                         />
-                        <Route path='/music' render={()=><Music/>}/>
+                        <Route path='/music' render={() => <Music/>}/>
                     </Routes>
                 </div>
                 <div>
                 </div>
             </div>
-    );
+        );
+    }
 }
 
-
-export default App;
+const mapStateToProps=(state)=>({
+    initialized: state.app.initialized
+})
+export default compose(
+          connect(mapStateToProps, {initializeApp})(App)
+)
